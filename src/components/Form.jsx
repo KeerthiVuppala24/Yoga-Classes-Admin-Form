@@ -48,6 +48,7 @@ export default function Form() {
       });
       setSuccess(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [error]);
 
   const validate = (values) => {
