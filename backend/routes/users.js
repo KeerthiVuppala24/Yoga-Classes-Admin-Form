@@ -9,17 +9,17 @@ router.route("/").get((req, res) => {
 
 router.route("/").post((req, res) => {
   const name = req.body.name;
-  const email = req.body.email;
-  const phno = req.body.phno;
   const age = req.body.age;
+  const gender = req.body.gender;
+  const contact = req.body.contact;
   const fee = req.body.fee;
   const slot = req.body.slot;
 
   const newUser = new User({
     name,
-    email,
-    phno,
     age,
+    gender,
+    contact,
     fee,
     slot,
   });

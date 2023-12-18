@@ -4,10 +4,10 @@ import axios from "axios";
 export default function Form() {
   const [user, setUser] = useState({
     name: "",
-    email:"",
-    phno: "",
     age: "",
-    fee:"",
+    gender: "",
+    contact: "",
+    fee: "",
     slot: "",
   });
 
@@ -40,9 +40,9 @@ export default function Form() {
 
       setUser({
         name: "",
-        email:"",
-        phno:"",
         age: "",
+        gender: "",
+        contact: "",
         fee: "",
         slot: "",
       });
@@ -55,18 +55,18 @@ export default function Form() {
     if (!user.name) {
       errors.name = "Name is required!";
     }
-    if(!user.email){
-        errors.email="Email Id is required";
-    }
     if (!user.age) {
       errors.age = "Age is required!";
     } else if (parseInt(user.age) < 18 || parseInt(user.age) > 65) {
       errors.age = "Age must be between 18 and 65 years!";
     }
-    if (!user.phno) {
-      errors.phno = "Contact is required!";
-    } else if (parseInt(user.phno) < 1000000000 || parseInt(user.phno) > 9999999999 || user.phno < "1000000000" || user.phno > "9999999999") {
-      errors.phno = "Contact must be equal to 10 digit!";
+    if (!user.gender) {
+      errors.gender = "Gender is required!";
+    }
+    if (!user.contact) {
+      errors.contact = "Contact is required!";
+    } else if (parseInt(user.contact) < 1000000000 || parseInt(user.contact) > 9999999999 || user.contact < "1000000000" || user.contact > "9999999999") {
+      errors.contact = "Contact must be equal to 10 digit!";
     }
     if (!user.fee) {
       errors.fee = "Fees is required!";
@@ -89,46 +89,46 @@ export default function Form() {
           <label>Name: </label>
           <input
             type="text"
-            placeholder="Enter Name"
+            placeholder="Your Name"
             name="name"
             value={user.name}
             onChange={hadleChange}
           ></input>
         </div>)}
         {!success && (<p>{error.name}</p>)}
-        {!success && (<div className="email">
-          <label>Email Id: </label>
-          <input
-            type="text"
-            placeholder="Enter Email Id"
-            name="email"
-            value={user.email}
-            onChange={hadleChange}
-          ></input>
-        </div>)}
-        {!success && (<p>{error.email}</p>)}
-        {!success && (<div className="phno">
-          <label>Contact: </label>
-          <input
-            type="text"
-            placeholder="Enter Contact Number"
-            name="phno"
-            value={user.phno}
-            onChange={hadleChange}
-          ></input>
-        </div>)}
-        {!success && (<p>{error.phno}</p>)}
         {!success && (<div className="age">
           <label>Age: </label>
           <input
             type="text"
-            placeholder="Enter Age"
+            placeholder="You Age"
             name="age"
             value={user.age}
             onChange={hadleChange}
           ></input>
         </div>)}
         {!success && (<p>{error.age}</p>)}
+        {!success && (<div className="gender">
+          <label>Gender: </label>
+          <input
+            type="text"
+            placeholder="Your Gender"
+            name="gender"
+            value={user.gender}
+            onChange={hadleChange}
+          ></input>
+        </div>)}
+        {!success && (<p>{error.gender}</p>)}
+        {!success && (<div className="contact">
+          <label>Contact: </label>
+          <input
+            type="text"
+            placeholder="Your Contact Number"
+            name="contact"
+            value={user.contact}
+            onChange={hadleChange}
+          ></input>
+        </div>)}
+        {!success && (<p>{error.contact}</p>)}
         {!success && (<div className="fee">
           <label>Fee: </label>
           <input
